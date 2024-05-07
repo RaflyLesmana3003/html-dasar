@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table</title>
+</head>
+<body>
+    <table border="1">
+        <tr>
+            <td>
+                <p>silahkan input form terlebih dahulu</p>
+            </td>
+            <td rowspan="2">
+                <form method="post" action="onxp.net/submit">
+                    <label for="nama">input nama anda: </label>
+                    <input type="text" name="nama" id="nama" minlength="2" maxlength="5" placeholder="input nama"> <br>
+            
+                    <label for="password">input password: </label>
+                    <input type="password" name="password" id="password" placeholder="isi password dulu"><br>
+            
+                    <label for="email">input email anda: </label>
+                    <input type="email" name="email" id="email"><br>
+            
+                    <label for="npwp">input npwp anda: </label>
+                    <input 
+                        type="text" 
+                        name="npwp" 
+                        id="npwp" 
+                        pattern="[0-9]{2}.[0-9]{3}.[0-9]{3}.[0-9]{1}-[0-9]{3}.[0-9]{3}"
+                        oninvalid="this.setCustomValidity('pakai format 99.999.999.9-999.999')"
+                        ><br>
+            
+                    <div>
+                        <h3>checkbox</h3>
+                        <p>dia  bisa di pilih lebih dari satu</p>
+            
+                        <input type="checkbox" id="basket" name="hobby" value="basket">
+                        <label for="basket">basket</label>
+            
+                        <input type="checkbox" id="sepakbola" name="hobby" value="sepakbola">
+                        <label for="sepakbola">sepakbola</label>
+            
+                        <input type="checkbox" id="buku" name="hobby" value="baca buku">
+                        <label for="buku">baca buku</label>
+                    </div>
+                    
+                    <br>
+                    <br>
+            
+                    <div>
+                        <h3>radio bytton</h3>
+                        <p>dia hanya bisa di pilih satu aja</p>
+                        <input type="radio" id="html" name="fav_language" value="HTML">
+                        <label for="html">HTML</label><br>
+            
+                        <input type="radio" id="css" name="fav_language" value="CSS (cascading style sheets)">
+                        <label for="css">CSS</label><br>
+            
+                        <input type="radio" id="javascript" name="fav_language" value="JavaScript">
+                        <label for="javascript">Javascript</label><br>
+                        
+                    </div>
+            
+                    <label for="cars">Choose a car:</label>
+            
+                    <select name="cars" id="cars">
+                        <option value="volvo">Volvo</option>
+                        <option value="saab">Saab</option>
+                        <option value="mercedes">Mercedes</option>
+                        <option value="audi">Audi</option>
+                    </select>
+            
+                    <br><br>
+                    <button type="submit">submit form</button>
+                </form>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <img src="https://d1vbn7sss0lmn1nqe.cloudfront.net/prod/wp-content/uploads/2021/10/26071254/mengenal-fakta-menarik-seputar-kucing-anggora-turki-halodoc.jpg.webp" alt="eh ini gambar kucing" width="300px">
+            </td>
+        </tr>
+    </table>
+</body>
+</html>
