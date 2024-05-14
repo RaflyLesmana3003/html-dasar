@@ -1,0 +1,98 @@
+body{
+    padding: 100px;
+}
+
+/* Flex */
+.container{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    /* align-items: center; */
+
+    /* flex-wrap: wrap; */
+    /* we can use align content if we have flex wrap */
+    /* align-content: center; */
+    gap: 100px;
+
+
+    padding: 10px;
+    height: 400px;
+    border: 1px dashed black;
+}
+
+
+/* Flex Item */
+.box{
+    width: 200px; 
+    height: 100px;
+    border: 1px solid black;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.container-base{
+    display: flex;
+    gap: 10px;
+
+    padding: 10px;
+    height: 400px;
+    border: 1px dashed black;
+}
+
+.box-item{
+    width: 100px; 
+    height: 100px;
+    border: 1px solid black;
+}
+
+
+.box-1{
+    flex-grow: 1;
+    flex-shrink: 1;
+}
+
+.box-2{
+    flex-grow: 4;
+    flex-shrink: 5;
+}
+
+.box-3{
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: 200px;
+
+    flex: 1 1 200px
+}
+
+/* .box-item:first-child{
+    flex-grow: 1;
+    flex-shrink: 5;
+    flex-basis: 10px;  */
+
+    /* short hand */
+    /* flex: 1 5 10px; */
+
+    /* align-self: center; */
+/* } */
+
+/* .box-item:nth-child(2){
+    flex-shrink: 5;
+} */

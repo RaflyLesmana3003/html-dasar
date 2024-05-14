@@ -1,0 +1,32 @@
+body{
+    padding: 100px;
+}
+
+.container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+
+
+    padding: 10px;
+    height: 600px;
+    border: 1px dashed black;
+
+    /* position: relative; */
+}
+
+.box{
+    border: 1px solid black;
+    flex-basis: 1000px;
+    height: 200px;
+
+}
+
+.box-1{
+    position: sticky;
+
+    /* height: 100px; */
+    top: 50px;
+    width: 200px;
+}

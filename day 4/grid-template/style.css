@@ -1,0 +1,37 @@
+body{
+    padding: 100px;
+}
+
+.container{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    grid-template-areas: 
+     'header header header'
+     'aside main main'
+     'footer footer footer';
+    padding: 10px;
+    height: 400px;
+    border: 1px dashed black;
+}
+
+.box{
+    border: 10px solid palevioletred;
+    background-color: lightpink;
+}
+
+.box-1{
+    grid-area: header;
+}
+
+.box-2{
+    grid-area: main;
+}
+
+.box-3{
+    grid-area: footer;
+}
+
+.box-4{
+    grid-area: aside;
+}
