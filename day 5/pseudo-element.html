@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pseudo-element Demonstration</title>
+    <style>
+        /* .example {
+            position: relative;
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #f0f0f0;
+            border: 2px solid #ccc;
+            font-family: Arial, sans-serif;
+        }
+
+        .example::before {
+            content: '🙌🏻';
+        }
+
+        .example::after {
+            content: ' 🔥';
+        } */
+
+         ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            padding: 10px;
+            margin: 5px;
+            background-color: #f0f0f0;
+            border: 1px solid #ccc;
+        }
+
+        /*
+        li:first-child {
+            background-color: #3498db;
+            color: white;
+        }
+
+        li:last-child {
+            background-color: #e74c3c;
+            color: white;
+        }*/
+
+        li:nth-child(2n) {
+            background-color: #2ecc71;
+            color: white;
+        } 
+    </style>
+</head>
+<body>
+    <!-- <div class="example">
+        This is a pseudo-element example
+    </div>
+
+    <div class="example">
+        This is a pseudo-element example
+    </div>
+
+    <div class="example">
+        This is a pseudo-element example
+    </div>
+
+    <div class="example">
+        This is a pseudo-element example
+    </div> -->
+
+    <ul>
+        <li>First item</li>
+        <li>Second item</li>
+        <li>Third item</li>
+        <li>Fourth item</li>
+        <li>Fifth item</li>
+    </ul>
+</body>
+</html>
