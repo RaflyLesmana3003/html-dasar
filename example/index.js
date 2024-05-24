@@ -1,40 +1,141 @@
-const body = document.body;
 
-// Creating a new paragraph element and setting attributes and styles
-const paragraph = document.createElement('p');
-paragraph.textContent = "Welcome to my website!";
-paragraph.setAttribute('id', 'dynamicParagraph'); // Setting an ID attribute
-paragraph.classList.add('styled-text'); // Adding a class
-paragraph.style.cssText = "color: blue; font-size: 20px;"; // Setting multiple styles at once
+document.getElementById("loginForm").addEventListener("submit", function(event) {
+    event.preventDefault(); // Prevent form submission
 
-// Creating a new anchor (link) element and setting attributes
-const link = document.createElement('a');
-link.textContent = "Click here to visit Google";
-link.setAttribute('href', "https://google.com");
-link.setAttribute('id', 'dynamicLink'); // Setting an ID attribute
-link.classList.add('styled-link'); // Adding a class
+    var username = document.getElementById("username").value;
+    var password = document.getElementById("password").value;
 
-// Appending the paragraph and link to the body of the document
-body.appendChild(paragraph);
-body.appendChild(link);
-
-// Adding an event listener to the link
-link.addEventListener('click', function(event) {
-    alert('You are about to leave the page!');
+    getDataFromServer(username, (x)=>{
+        console.log(x)
+    })
 });
 
-// Selecting the newly created elements by their IDs
-const existingParagraph = document.getElementById('dynamicParagraph');
-const existingLink = document.getElementById('dynamicLink');
+function getDataFromServer(username, callback) {
+    setTimeout(() => {
+        const userData = {
+            username: username,
+            email: "example@example.com",
+            age: 30
+        };
+        callback(userData);
+    }, 2000);
+}
 
-// Logging the text content of the selected elements
-console.log(existingParagraph.textContent);
-console.log(existingLink.textContent);
+document.getElementById("loginForm").addEventListener("submit", function(event) {
+    event.preventDefault(); // Prevent form submission
 
-// Selecting the newly created elements by their IDs
-const existingParagraph1 = document.querySelector('#id');
-const existingLink2 = document.getElementById('.class');
+    var username = document.getElementById("username").value;
+    var password = document.getElementById("password").value;
 
-// Logging the text content of the selected elements
-console.log(existingParagraph.textContent);
-console.log(existingLink.textContent);
+    getDataFromServer(username)
+        .then(userData => {
+            console.log(userData);
+        })
+        .catch(error => {
+            console.error(error);
+        });
+});
+
+function getDataFromServer(username) {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            const userData = {
+                username: username,
+                email: "example@example.com",
+                age: 30
+            };
+            resolve(userData);
+        }, 2000);
+    });
+}
+
+document.getElementById("loginForm").addEventListener("submit", async function(event) {
+    event.preventDefault(); // Prevent form submission
+
+    var username = document.getElementById("username").value;
+    var password = document.getElementById("password").value;
+
+    try {
+        const userData = await getDataFromServer(username);
+        console.log(userData);
+    } catch (error) {
+        console.error(error);
+    }
+});
+
+function getDataFromServer(username) {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            const userData = {
+                username: username,
+                email: "example@example.com",
+                age: 30
+            };
+            resolve(userData);
+        }, 2000);
+    });
+}
+
+// ---------------------------------------------------------------------------------
+
+
+const form = document.getElementById('barangForm');
+form.addEventListener('submit', (event) => {
+    event.preventDefault();
+    const id = document.getElementById('id').value;
+    const nama = document.getElementById('nama').value;
+    const harga = document.getElementById('harga').value;
+
+    const transaction = db.transaction(['barang'], 'readwrite');
+    const objectStore = transaction.objectStore('barang');
+    const request = objectStore.put({ id, nama, harga });
+
+    request.onsuccess = () => {
+        form.reset();
+        displayData();
+    };
+
+    request.onerror = (event) => {
+        console.error('Transaction error:', event.target.errorCode);
+    };
+});
+
+function displayData() {
+    const barangList = document.getElementById('barangList');
+    barangList.innerHTML = '';
+
+    const transaction = db.transaction(['barang'], 'readonly');
+    const objectStore = transaction.objectStore('barang');
+
+    objectStore.openCursor().onsuccess = (event) => {
+        const cursor = event.target.result;
+        if (cursor) {
+            const li = document.createElement('li');
+            li.textContent = `ID: ${cursor.value.id}, Nama: ${cursor.value.nama}, Harga: ${cursor.value.harga}`;
+            
+            const deleteButton = document.createElement('button');
+            deleteButton.textContent = 'Hapus';
+            deleteButton.addEventListener('click', () => {
+                deleteItem(cursor.value.id);
+            });
+
+            li.appendChild(deleteButton);
+            barangList.appendChild(li);
+            cursor.continue();
+        }
+    };
+}
+
+function deleteItem(id) {
+    const transaction = db.transaction(['barang'], 'readwrite');
+    const objectStore = transaction.objectStore('barang');
+    const request = objectStore.delete(id);
+
+    request.onsuccess = () => {
+        displayData();
+    };
+
+    request.onerror = (event) => {
+        console.error('Delete error:', event.target.errorCode);
+    };
+}
