@@ -1,0 +1,62 @@
+@import url("https://fonts.googleapis.com/css?family=Syne%20Mono:700|Syne%20Mono:400");
+:root[data-theme="light"] {
+  --text: #050315;
+  --background: #fbfbfe;
+  --primary: #2f27ce;
+  --secondary: #dedcff;
+  --accent: #433bff;
+}
+
+:root[data-theme="dark"] {
+  --text: #ebe9fc;
+  --background: #010104;
+  --primary: #3a31d8;
+  --secondary: #020024;
+  --accent: #0600c2;
+}
+
+body {
+  font-family: 'Syne Mono';
+  font-weight: 400;
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: 'Syne Mono';
+  font-weight: 700;
+}
+
+html {
+  font-size: 100%;
+}
+
+/* 16px */
+h1 {
+  font-size: 4.210rem;
+  /* 67.36px */
+}
+
+h2 {
+  font-size: 3.158rem;
+  /* 50.56px */
+}
+
+h3 {
+  font-size: 2.369rem;
+  /* 37.92px */
+}
+
+h4 {
+  font-size: 1.777rem;
+  /* 28.48px */
+}
+
+h5 {
+  font-size: 1.333rem;
+  /* 21.28px */
+}
+
+small {
+  font-size: 0.750rem;
+  /* 12px */
+}
+/*# sourceMappingURL=global.css.map */

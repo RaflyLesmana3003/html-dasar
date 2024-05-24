@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en"> 
+    <!-- 16px / preferensi dari user --> 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    body {
+        font-family: Arial, sans-serif;
+    }
+
+    h1 {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .unit-list {
+        list-style-type: none;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .list-item {
+        padding: 10px;
+        color: #fff;
+        text-align: center;
+        border-radius: 8px;
+    }
+
+    /* Absolute units */
+    .absolute-px {
+        width: 150px; 
+        height: 50px; 
+        background-color: #3498db; 
+    }
+
+    /* Relative units */
+    .absolute-em {
+        width: 15em; 
+        height: 5em; 
+        background-color: #e74c3c; 
+    }
+
+    .absolute-rem {
+        width: 10rem; 
+        height: 3rem; 
+        background-color: #f39c12; 
+    }
+
+    
+    .relative-percent {
+        width: 50%; 
+        height: 50%; 
+        background-color: #2ecc71;
+    }
+
+    .relative-vw {
+        width: 20vw; 
+        height: 10vw;
+        background-color: #9b59b6;
+    }
+
+    .relative-vh {
+        width: 20vh;
+        height: 10vh;
+        background-color: #e67e22;
+    }
+    </style>
+</head>
+<body>
+    <h1>CSS Units: Absolute and Relative in Lists</h1>
+    <ul class="unit-list">
+        <li class="list-item absolute-px">Absolute: 50px</li>
+        <li class="list-item absolute-em">Absolute: 1em</li>
+        <li class="list-item absolute-rem">Absolute: 1rem</li>
+        <li class="list-item relative-percent">Relative: 50%</li>
+        <li class="list-item relative-vw">Relative: 20vw</li>
+        <li class="list-item relative-vh">Relative: 10vh</li>
+    </ul>
+</body>
+</html>

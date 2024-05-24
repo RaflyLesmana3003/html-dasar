@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Varela%20Round:700|Varela%20Round:400');
+
+        body {
+            font-family: 'Varela Round';
+            font-weight: 400;
+        }
+
+        h1, h2, h3, h4, h5, span {
+            font-family: 'Varela Round';
+            font-weight: 700;
+        }
+
+        html {font-size: 100%;} /* 16px */
+
+        h1 {font-size: 4.210rem; /* 67.36px */}
+
+        h2 {font-size: 3.158rem; /* 50.56px */}
+
+        h3 {font-size: 2.369rem; /* 37.92px */}
+
+        h4 {font-size: 1.777rem; /* 28.48px */}
+
+        h5 {font-size: 1.333rem; /* 21.28px */}
+
+        small {font-size: 0.750rem; /* 12px */}
+
+        :root{
+            --text: #0f1517;
+            --background: #f5f8f9;
+            --primary: #659cac;
+            --secondary: #a3c7d2;
+            --accent: #74afc1;
+
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            line-height: 1.5;
+            word-spacing: 1.4px;
+            color: var(--clr-dark);
+            background-color: var(--clr-light);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        button{
+            color: white;
+            background-color: var(--primary);
+            border: none;
+            cursor: pointer;
+            padding: 10px;
+            border-radius: 10px;
+            width: 100px;
+
+            animation-name: easeIn;
+            animation-duration: 10s;
+            animation-timing-function: ease;
+            animation-delay: 0s;
+            animation-iteration-count: 1;
+            animation-direction: normal;
+            /* animation-fill-mode: forwards; */
+
+            /* animation: name duration timing-function delay iteration-count direction fill-mode; */
+
+            /* transform: translateX(-150%); */
+        }
+
+
+        @keyframes easeIn{
+            0% {
+                transform: 
+                    translate(0)
+                    scale(1);
+            }
+
+            30% {
+                background-color: green;
+                transform: 
+                    translateY(-50px)
+                    scale(2);
+            }
+
+
+            70%, 90% {
+                transform: 
+                    translateY(-150px)
+                    scale(2);
+            }
+
+            100% {
+                transform: 
+                    translateY(-200px)
+                    scale(1);
+                background-color: red;
+            }
+        }
+    </style>
+</head>
+<body>
+    <button type="button">
+        <span>Click Me</span>
+    </button>
+</body>
+</html>
