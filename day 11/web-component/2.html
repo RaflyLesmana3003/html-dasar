@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Custom Web Component</title>
+</head>
+<body>
+
+  <!-- Define your custom element -->
+  <template id="custom-element-template">
+    <div>
+      <h2>This is a custom element</h2>
+      <slot></slot> <!-- This is where the content passed into the component will be placed -->
+    </div>
+  </template>
+
+  <!-- Define the custom element -->
+  <script>
+    class CustomElement extends HTMLElement {
+      constructor() {
+        super();
+        const template = document.getElementById('custom-element-template').content;
+        const shadowRoot = this.attachShadow({ mode: 'open' });
+        shadowRoot.appendChild(template.cloneNode(true));
+      }
+    }
+
+    // Define the custom element tag
+    customElements.define('custom-element', CustomElement);
+  </script>
+
+  <!-- Use the custom element -->
+  <custom-element>
+    <p>This is some content inside the custom element.</p>
+  </custom-element>
+
+</body>
+</html>

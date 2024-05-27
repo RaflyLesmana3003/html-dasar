@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Button</title>
+</head>
+<body>
+    <!-- Use the custom button element and specify a CSS class -->
+    <custom-button class="my-button" label="Click Me">
+        <span>Custom Content</span>
+    </custom-button>
+
+    <script>
+        // Define the custom button element class
+        class CustomButton extends HTMLElement {
+            constructor() {
+                super();
+                // Attach a shadow DOM to the custom element
+                this.attachShadow({ mode: 'open' });
+                // Create a button element
+                this.button = document.createElement('button');
+                // Append the button element and slot element to the shadow DOM
+                this.shadowRoot.appendChild(this.button);
+            }
+
+            // Connected callback to handle custom attributes
+            connectedCallback() {
+                // Get custom attribute values
+                const className = this.getAttribute('class') || '';
+                const label = this.getAttribute('label') || 'Button';
+
+                // Set button attributes based on custom attributes
+                this.button.className = className;
+                this.button.textContent = label;
+
+                // Log custom attribute values
+                console.log('Class:', className);
+                console.log('Label:', label);
+            }
+
+            // Method to get the value of the class attribute
+            getButtonClass() {
+                return this.button.className;
+            }
+        }
+
+        // Register the custom button element
+        customElements.define('custom-button', CustomButton);
+    </script>
+</body>
+</html>

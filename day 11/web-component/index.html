@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Element with Lifecycle Callbacks</title>
+</head>
+<body>
+    <!-- Use the custom element -->
+    <custom-form></custom-form>
+
+    <script>
+        // Define the template for the form
+        const formTemplate = document.createElement('template');
+        formTemplate.innerHTML = `
+            <form id="myForm">
+                <label for="firstName">First Name:</label><br>
+                <input type="text" id="firstName" name="firstName" required><br><br>
+                
+                <label for="lastName">Last Name:</label><br>
+                <input type="text" id="lastName" name="lastName" required><br><br>
+                
+                <label for="email">Email:</label><br>
+                <input type="email" id="email" name="email" required><br><br>
+                
+                <label for="message">Message:</label><br>
+                <textarea id="message" name="message" rows="4" cols="50" required></textarea><br><br>
+                
+                <button type="submit">Submit</button>
+            </form>
+        `;
+
+        // Define the custom form element class
+        class CustomForm extends HTMLElement {
+            constructor() {
+                super();
+                // Attach a shadow DOM to the custom element
+                this.attachShadow({ mode: 'open' });
+                // Clone the form template and attach it to the shadow DOM
+                this.shadowRoot.appendChild(formTemplate.content.cloneNode(true));
+            }
+
+            // Connected callback to handle custom attributes
+            connectedCallback() {
+                // Get custom attributes
+                const action = this.getAttribute('action') || '/';
+                const method = this.getAttribute('method') || 'get';
+                const enctype = this.getAttribute('enctype') || 'application/x-www-form-urlencoded';
+
+                // Set form attributes based on custom attributes
+                const form = this.shadowRoot.getElementById('myForm');
+                form.setAttribute('action', action);
+                form.setAttribute('method', method);
+                form.setAttribute('enctype', enctype);
+
+                // Log custom attribute values
+                console.log('Action:', action);
+                console.log('Method:', method);
+                console.log('Enctype:', enctype);
+            }
+        }
+
+        // Register the custom form element
+        customElements.define('custom-form', CustomForm);
+
+    </script>
+</body>
+</html>
